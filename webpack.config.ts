@@ -1,4 +1,5 @@
 import * as path from 'path';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 const config = {
     entry: {
@@ -14,6 +15,14 @@ const config = {
     resolve: {
         extensions: ['.tsx', '.ts', '.js', '.json'],
     },
+    plugins: [
+        new CopyWebpackPlugin([
+	        { from: './hello-world.txt', to: 'HelloWorldFunction/hello-world.txt' }
+        ],
+        {
+            copyUnmodified: true
+        }),
+    ],
     module: {
         exprContextCritical: false,
         rules: [
