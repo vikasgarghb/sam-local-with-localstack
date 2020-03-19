@@ -1,0 +1,12 @@
+version: "3"
+services:
+  localstack:
+    build: localstack
+    container_name: localstack
+    environment:
+      - DATA_DIR=/tmp/localstack/data
+      - SERVICES=s3
+      - TZ=America/New_York
+    ports:
+      - '4572:4572'
+
